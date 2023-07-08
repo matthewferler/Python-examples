@@ -1,16 +1,16 @@
 import io
 import logging
-from datatime import datetime
+from datetime import datetime
 import traceback
 import types
 
 class TimestampFormatter(logging.Formatter):
   def format(self, record):
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    message = f"[{now}] {record.level}: {record.msg}"
+    message = f"[{now}] {record.levelname}: {record.msg}"
     return message
 def stack_trace(self, ex):
-  buffer = io.stringIO()
+  buffer = io.StringIO()
   traceback.print_exception(type(ex), ex, ex.__traceback__, file=buffer)
   self.error(buffer.getvalue())
 
