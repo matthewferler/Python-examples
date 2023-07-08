@@ -19,6 +19,5 @@ def get_logger(log_level):
                             format='%(asctime)s %(levelname)s %(message)s',
                             datefmt='%Y-%m-%d %H:%M:%S')
         logger = logging.getLogger('my_logger')
-        logger.setLevel(log_level)
         logger.stack_trace = types.MethodType(stack_trace, logger)
         return logger
